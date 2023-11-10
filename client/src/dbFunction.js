@@ -10,7 +10,7 @@ export async function traerJugadores(){
     }catch(e){
     }
 }
-export async function editar(datos){
+export async function editarJugador(datos){
     try{
         const response = await fetch("http://localhost:8080/editarJugador",{
             method: "POST",
@@ -55,3 +55,33 @@ export async function anadirJugadores(datos){
         console.log("Error:",e);
     }
 }
+
+export async function jugadorMasAlto(){
+    try{
+        const response = await fetch("http://localhost:8080/jugadorMasAlto",{headers})
+        const data = await response.json();
+        return data
+    }catch(e){
+        console.log("Error:",e);
+    }
+}
+export async function jugadoresArg(){
+    try{
+        const response = await fetch("http://localhost:8080/nacionalidadArgentina",{headers})
+        const data = await response.json();
+        return data
+    }catch(e){
+        console.log("Error:",e);
+    }
+}
+
+export async function jugadoresPesos(){
+    try{
+        const response = await fetch("http://localhost:8080/jugadorPeso",{headers})
+        const data = await response.json();
+        return data
+    }catch(e){
+        console.log("Error:",e);
+    }
+}
+

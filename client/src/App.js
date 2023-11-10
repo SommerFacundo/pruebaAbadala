@@ -1,26 +1,17 @@
 import {React,useState,useEffect} from "react";
-import { traerJugadores } from './dbFunction';
-import { Tabla } from "./tablaJugadores";
-import { AnadirJugador } from "./aniadirJugador";
+import { Tabla } from "./componentes/tablaJugadores";
+import { AnadirJugador } from "./componentes/aniadirJugador";
 import './App.css';
-import { EditarJugador } from "./editarJugador";
-
+import { JugadorPeso } from "./componentes/jugadorPesosMayores";
 function App() {
-  const [modifiedTable,setModifiedTable] = useState(0)
-  const [jugadores,setJugadores] = useState([])
-  useEffect(()=>{
-    traerJugadores().then((data)=>{
-      setJugadores(data)
-    });
-    
-  },[modifiedTable]);
+  const [modifiedTable,setModifiedTable] = useState(0);
+
   return (
     <div>
-      <Tabla jugadores={jugadores} setModified={setModifiedTable} modified={modifiedTable}/>
+      <Tabla setModified={setModifiedTable} modified={modifiedTable}/>
       
-      
-      
-      <EditarJugador setModifiedTable={setModifiedTable} modifiedTable={modifiedTable}/>
+    
+      <JugadorPeso/>
       <AnadirJugador setModifiedTable={setModifiedTable} modifiedTable={modifiedTable}/>
     </div>
   );

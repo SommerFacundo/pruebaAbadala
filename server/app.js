@@ -13,8 +13,6 @@ app.use(express.json())
 app.use(cookieParser())
 
 
-
-
 app.get("/traerjugadores/",async (req,res)=>{
     try{
         const jugadores = await traerJugadores();
@@ -24,6 +22,30 @@ app.get("/traerjugadores/",async (req,res)=>{
         console.log("Ocurrio un error",e);
     }
 })
+app.get("/nacionalidadArgentina/",async(req,res)=>{
+    try{
+        const nacArg = await nacionalidadArgentina();
+        res.status(200).send(nacArg);
+    }catch(e){
+        console.log(e)
+    }
+});
+app.get("/jugadorPeso/",async(req,res)=>{
+    try{
+        const peso = await jugadorPeso();
+        res.status(200).send(peso);
+    }catch(e){
+        console.log(e)
+    }
+});
+app.get("/jugadorMasAlto/",async(req,res)=>{
+    try{
+        const alto = await getJugadorAlto();
+        res.status(200).send(alto);
+    }catch(e){
+        console.log(e)
+    }
+});
 app.post("/anadirJugadores/",async(req,res)=>{
     console.log(req.body)
     try{
@@ -49,6 +71,7 @@ app.post("/anadirJugadores/",async(req,res)=>{
     }
 });
 app.post("/editarJugador/",async(req,res)=>{
+    console.log(req.body)
     try{
         const jugadores = await editarJugador(
         req.body.id_jugadores,   
@@ -82,11 +105,7 @@ app.post("/eliminar/:id",async(req,res)=>{
     }
 });
 
-app.get("/jugadoresarg",async(req,res)=>{
-    try{
-        const jugadores = await 
-    }
-});
+
 http.createServer(app).listen(8080, () => {
     console.log("Server running on port 8080 (HTTP)");
   });

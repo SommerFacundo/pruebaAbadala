@@ -62,7 +62,7 @@ export async function nacionalidadArgentina(){
 }
 export async function jugadorPeso(){
     try{
-        const [result] = await pool.query(`SELECT * FROM jugadores WHERE peso > 75 AND peso < 80`);
+        const [result] = await pool.query(`SELECT * FROM jugadores WHERE p > 75 AND p < 80`);
         return result;
     }catch(e){
         console.log("Es un error", e);
