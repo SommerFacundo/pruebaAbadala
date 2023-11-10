@@ -1,7 +1,7 @@
 import {React,useEffect,useState} from "react";
 import { traerJugadores,eliminarJugador, editarJugador } from "../dbFunction";
 import { ModalUpdate } from "./modalUpdateJugador";
-
+import "./styles.css/tablaJugadores.css"
 export function Tabla({setModified,modified}){
     const [edit,setEdit] = useState(false);
     const [jugadores,setJugadores] = useState([])
@@ -48,7 +48,8 @@ export function Tabla({setModified,modified}){
 
   return(
     <>
-        <table border={1} style={{textAlign:"center"}}>
+    <div className="containerTabla">
+        <table style={{textAlign:"center"}}>
           <tr>
             <th>Nombre</th>
             <th>POS</th>
@@ -67,7 +68,7 @@ export function Tabla({setModified,modified}){
             <th>TR</th>
           </tr>
           {jugadores.map((e)=>(
-            <tr>
+            <tr className="trJugadores">
                 <td value={e.id_jugadores}>{e.nombre}</td>
                 <td>{e.pos}</td>
                 <td>{e.Edad}</td>
@@ -85,7 +86,7 @@ export function Tabla({setModified,modified}){
                 <td>{e.TR}</td>
                 <button onClick={()=>{
                     deletePlayer(e.id_jugadores);
-                    }}>Eliminar</button>
+                    }} className="btnTableDelete">Eliminar</button>
                     <button onClick={()=>{
                       setDatosModified(
                         {
@@ -108,7 +109,7 @@ export function Tabla({setModified,modified}){
                         }
                       );
                       setShowUpdate(true)
-                    }}>Editar</button>
+                    }} className="btnTableEdit">Editar</button>
             </tr>
           ))}
 
@@ -118,7 +119,7 @@ export function Tabla({setModified,modified}){
           
           }
     
-    
+    </div>
     </>
         
   )

@@ -5,6 +5,7 @@ export function ModalUpdate({ datosModif,setShowUpdate,showUpdate,setDatosModifi
     const handleUpdate = ()=>{
         let inputs = document.querySelectorAll(".modalUpdate  input");
         let inputsArray = [];
+        
         inputs.forEach((e)=>{
             inputsArray.push(e.value)
         })
@@ -26,6 +27,7 @@ export function ModalUpdate({ datosModif,setShowUpdate,showUpdate,setDatosModifi
             ta:inputsArray[14],
             tr:inputsArray[15]
           })
+          console.log(inputsArray)
     }
     console.log(datosModif)
 
@@ -45,7 +47,10 @@ export function ModalUpdate({ datosModif,setShowUpdate,showUpdate,setDatosModifi
                     Posicion:
                     <input defaultValue={datosModif.pos} type="text"></input>
                 </label>
-
+                <label>
+                    Edad:
+                    <input defaultValue={datosModif.edad} type="number" step={"any"}></input>
+                </label>
                 <label>
                     Estatura:
                     <input defaultValue={datosModif.est} type="number" step={"any"}></input>
@@ -54,7 +59,7 @@ export function ModalUpdate({ datosModif,setShowUpdate,showUpdate,setDatosModifi
                     Peso:
                     <input defaultValue={datosModif.p} type="number" step={"any"}></input>
                 </label>
-
+              
                 <label>
                     Nacionalidad:
                     <input defaultValue={datosModif.nac} type="text"></input>

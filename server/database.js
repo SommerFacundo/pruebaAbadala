@@ -1,10 +1,4 @@
 import mysql from 'mysql2';
-import dotenv from 'dotenv';
-
-/**
- * Configuración para cargar variables de entorno desde el archivo .env
- */
-dotenv.config();
 
 /**
  * Pool de conexiones a la base de datos MySQL
@@ -37,9 +31,9 @@ export async function editarJugador(id_jugadores,nombre,pos,edad,est,p,nac,ap,su
          nac = ?,
          Ap = ?,
          Sub = ?,
-         A = ?,
+         G = ?,
         GA = ?,
-        G = ?,
+        A = ?,
         FC = ?,
         FS = ?,
         TA = ?,
@@ -71,7 +65,10 @@ export async function jugadorPeso(){
 
 export async function getJugadorAlto(){
     try{
-        const [result] = await pool.query(`SELECT MAX(Est) FROM jugadores`);
+        const [result] = await pool.query(`
+        SELECT *
+        FROM jugadores
+        WHERE Est = (SELECT MAX(Est) FROM jugadores);`);
         return result;
     }catch(e){
         console.log("Error", e);

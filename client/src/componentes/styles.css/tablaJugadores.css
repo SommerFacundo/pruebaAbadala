@@ -1,0 +1,36 @@
+.containerTabla{
+    width: 100%;
+    display: flex;
+    justify-content: center;  
+    flex-direction: column; 
+}
+.containerTabla > table{
+    font-family: sans-serif;
+    width: 100%;
+}
+
+.containerTabla >table >tr > th{
+    color: rgb(56, 56, 56);
+}
+.containerTabla > table > tr > th{
+    border-bottom: 1px solid black;
+}
+.trJugadores:hover{
+   background-color: rgb(235, 235, 235); 
+}
+.btnTableDelete,.btnTableEdit{
+    padding: .7rem;
+    border: none;
+    margin-left: 1rem;
+    color: #fff;
+
+}
+.btnTableEdit{
+    background-color: rgb(0, 174, 255);
+}
+.btnTableDelete{
+    background-color: #ff2727;
+}
+.btnTableDelete:hover,.btnTableEdit:hover{
+    cursor: pointer;
+}

@@ -9,7 +9,8 @@ export function JugadorPeso(){
     },[])
     console.log(data);
     return(
-        <div>
+      <div className="containerTabla">
+          Pesos Mayores
             <table border={1} style={{textAlign:"center"}}>
           <tr>
             <th>Nombre</th>
